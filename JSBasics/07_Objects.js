@@ -3,7 +3,7 @@ let mySym = Symbol('Key1');
 const myObj = {
     name: "Harminder",
     "Full Name": "Harminder Singh Saini",
-    age: 29,
+    age: 29, 
     job: "SD",
     greeting: function (){
         console.log("Hi, from Harminder")
@@ -16,5 +16,5 @@ console.log(myObj["Full Name"])
 console.log(myObj[mySym])
 // console.log(myObj[greeting()])
 // console.log(myObj[greeting])
-console.log(myObj.greeting)
+console.log(myObj.greeting) 
 console.log(myObj.greeting())
