@@ -96,3 +96,24 @@ const newArr = ["JS", "JAVA", "C#", "PHP"]
 newArr.forEach(  function (item) {
     console.log(item)
 } )
+
+// Using Arrow Functions
+
+newArr.forEach( (item) => {
+    console.log(item)
+} )
+
+// What id we create a function outside and pass it, Yes we can do it but MAKE SURE TO ONLY PASS THE REFERENCE IN THE LOOP, DO NOT PASS ANY ARGUMENT AS
+//IT IS INTELLIGENT ENOUGH TO USE IT AUTOMATICALLY
+
+function printME(val){
+    console.log(val)
+}
+
+newArr.forEach(printME)
+
+// NOW HERE THE CALL BACK FUNCTION DOES NOT ONLY HAVE ACCESS TO ONLY EACH ITEM, BUT ALSO THE INDEX OF THAT PARTICULAR ITEM AS WELL AS THE WHOLE ARRAY ITSELF
+
+newArr.forEach( (item, INDEX, ARR) => {
+    console.log(INDEX + ": " +  item + ", Arr: " + ARR)
+} )
