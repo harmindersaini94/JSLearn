@@ -117,3 +117,5 @@ newArr.forEach(printME)
 newArr.forEach( (item, INDEX, ARR) => {
     console.log(INDEX + ": " +  item + ", Arr: " + ARR)
 } )
+
+// SAme happens wiuth the array of objects
