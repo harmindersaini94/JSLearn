@@ -66,7 +66,7 @@ const myObj = {
 // We can use FOR IN loop for objects
 
 for (const key in myObj){
-    console.log(key + ":-" + myObj[key]);
+    //console.log(key + ":-" + myObj[key]);
 }
 
 // FOR IN also works on arrays
@@ -74,9 +74,25 @@ for (const key in myObj){
 const myArr = [1,2,3,4,5]
 
 for (const key in myArr){
-    console.log(key + ":-" + myArr[key]);  // One thing to note here is that we know obj have key, but what is meant by key in array, key are Index in array
+   // console.log(key + ":-" + myArr[key]);  // One thing to note here is that we know obj have key, but what is meant by key in array, key are Index in array
 }
 
 
 // FOR IN cant work on Map, coz MAP is not iteratable
-    
+
+
+
+// FOR EACH LOOP
+
+const newArr = ["JS", "JAVA", "C#", "PHP"]
+
+//newArr.forEach(   ) // Now here forEach bol rha ki call back function do mujhe
+
+// ok so lets give it a function first  newArr.forEach( function name() {}  )
+
+// CAllback function means that it will not have any name, and it is intelligent enought to automatically loop thrugh each elemnt of the array
+// so final syntax will be
+
+newArr.forEach(  function (item) {
+    console.log(item)
+} )
