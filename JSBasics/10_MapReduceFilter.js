@@ -59,10 +59,21 @@ console.log(BookEdition)
 
 const numbers = [1,2,3,4,5,6,7,8,9,10]
 
+// const final = numbers
+//                 .map( (num) => num * 10)
+//                 .map( (num) => num + 1)
+//                 .filter( (num) => num > 40)
+
+//                 console.log(final)
+
 const final = numbers
                 .map( (num) => num * 10)
                 .map( (num) => num + 1)
-                .filter( (num) => num > 40)
+                .filter( (num,index) => index > 3)
 
                 console.log(final)
+
+numbers.map( (item, index,arr) => {
+    console.log(`Hi ${item} :  ${index} :  ${arr}`)
+})
 
