@@ -33,10 +33,12 @@
         document.querySelector('body').style.backgroundColor = `${color}`
     }
 
-    document.querySelector('#start').addEventListener('click', function(){
+    document.querySelector('#start').addEventListener('click', function(e){
         if (!interval){    // <---Important
             interval = setInterval(colorGenerator2, 2000)
         }
+
+        console.log(e)
     })
     document.querySelector('#stop').addEventListener('click', function(){
         clearInterval(interval)
