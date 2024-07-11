@@ -19,15 +19,28 @@
 
         document.querySelector('body').style.backgroundColor = `rgb(${r},${g},${b})`
     }
-    document.querySelector('#start').addEventListener('click', function(){
-        // interval = setInterval(function(str){
-        //     console.log(`${str} ${Date.now()} `)
-        // }, 2000, "Hi Harminder")
 
-        interval = setInterval(colorGenerator, 2000)
+    //using HEX Values
+    const colorGenerator2 = function(){
+        const hexVal = [0,1,2,3,4,5,6,7,8,9,'A', 'B', 'C', 'D', 'E', 'F']
+        let color = '#'
+
+        // Now use Math.random to get a random number between 0-16 and tha will the corresponding index in array from where we take value
+        for(let i = 0; i < 6; i++){
+            color += hexVal[Math.floor(Math.random() * 16)]
+        }
+
+        document.querySelector('body').style.backgroundColor = `${color}`
+    }
+
+    document.querySelector('#start').addEventListener('click', function(){
+        if (!interval){    // <---Important
+            interval = setInterval(colorGenerator2, 2000)
+        }
     })
     document.querySelector('#stop').addEventListener('click', function(){
         clearInterval(interval)
+        interval = null   // <---Important
         console.log("STOPPED")
     })
 </script>
