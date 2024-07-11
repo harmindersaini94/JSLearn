@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+</style>
+</head>
+<body>
+
+<h2>Round Card</h2>
+
+<div class="card">
+  <img src="img_avatar2.png" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b id="name">Jane Doe</b></h4> 
+    <p id="followers">Interior Designer</p> 
+  </div>
+</div>
+
+</body>
+<script>
+    const url = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url)
+    xhr.send();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            console.log(typeof this.responseText)
+            if(typeof this.responseText === "string"){
+                const obj = JSON.parse(this.responseText)
+                document.querySelector('#name').innerHTML = obj["name"]
+                document.querySelector('#followers').innerHTML = obj["followers"]
+                let imgTag = document.querySelector('img');
+                imgTag.src = obj["avatar_url"]
+                imgTag.width = "50"
+                imgTag.height = "100"
+            }
+        }
+    };
+
+
+</script>
+</html> 
