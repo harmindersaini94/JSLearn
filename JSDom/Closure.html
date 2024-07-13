@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure And HSS</title>
+</head>
+<body style="background-color: #212121;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+
+    // Usual Way
+
+    // document.querySelector('#orange').addEventListener('click', (e) => {
+    //     document.querySelector('body').style.backgroundColor = e.target.id
+    // })
+
+    // document.querySelector('#green').addEventListener('click', (e) => {
+    //     document.querySelector('body').style.backgroundColor = e.target.id
+    // })
+
+    // Now what if we had like 500 of them, so we need to have 500 click event's callback, Not Feasible as it will be DRY work i.r do not reapeat urself
+    // coz we will be doing the same thing with different parameter inside each callback
+
+    // So to avoid, lets create a common function, and then we will pass it to the onclick
+    function colorChangeHandler(color){
+        document.querySelector('body').style.backgroundColor = `${color}`
+    }
+
+    // Now lets pass it to the onclick of the buttong
+    //Lets try Method 1
+
+    // document.querySelector('#orange').addEventListener('click', colorChangeHandler)
+    // document.querySelector('#green').addEventListener('click', colorChangeHandler )
+
+    // So Method 1 did not work
+
+    // Lets's try Method 2
+
+    // document.querySelector('#orange').onclick = colorChangeHandler()
+    // document.querySelector('#green').onclick = colorChangeHandler
+
+    // So Method 2 did not work as well
+
+    // Lets's try Method 3
+
+    // document.querySelector('#orange').onclick = colorChangeHandler('orange')
+    // document.querySelector('#green').onclick = colorChangeHandler('green')
+
+    // So Method 3 did not work as well as it gets executed even before the click
+
+    // So this is where the concept of closure will be beneficial, where a function like onClick, whose default requirement is to accepts a function
+    // is being given a function.
+
+    // lets modify the handler function above
+
+    function colorChangeHandler_2(color){
+        return function (){
+            document.querySelector('body').style.backgroundColor = `${color}`
+        }
+    }
+
+    document.querySelector('#orange').onclick = colorChangeHandler_2('orange')
+    document.querySelector('#green').onclick = colorChangeHandler_2('green')
+
+    // So the code here works finally because here we have now returned a function to the onclick event.
+    // THe function returened has 2 things
+    // 1. Its own EC
+    // 2. The access to the lexical scope in which it is declared
+
+        
+</script>
+</html>
