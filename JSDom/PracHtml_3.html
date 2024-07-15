@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="parent">
+        <li>Python</li>
+        <li>JS</li>
+        <li>C#</li>
+    </ul>
+
+    <ul class="parent2">
+        <li>Python 2</li>
+        <li>JS 2</li>
+        <li>C# 2</li>
+    </ul>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent)
+    console.log(parent.children)
+
+    // How to go from parent to child
+    console.log(parent.firstElementChild.innerHTML) 
+    console.log(parent.lastElementChild.innerHTML)
+
+    // How to move from child to parent
+    let thirdChild = parent.children[2]
+    console.log(thirdChild.innerHTML)
+    console.log(thirdChild.parentElement)
+
+    // Child to adjacent child
+    let secondChild = parent.children[1]
+    console.log(secondChild.nextElementSibling)
+
+    // now that we have total 6 Li, let get the second and the 5th li
+
+//document.querySelector('li:nth-child(3)') 
+// by this the JS compiler only looks at the li of a single parent, that will the first parent that it finds, 
+// if we want to get the 5th Li we have two options
+
+// 1. document.querySelectorAll('li')[4]  --- 0 based index
+// 2. document.querySelector('#parent2')
+
+
+    const secondLi = document.querySelector('li:nth-child(3)')
+    console.log("Here is the Second Li " , secondLi)
+
+    const fifthLi = document.querySelectorAll('li')[4]
+    console.log("Here is the Fifth Li " , fifthLi)
+
+</script>
+</html>
