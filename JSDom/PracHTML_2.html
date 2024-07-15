@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <h1>Screen X-Axis : <span id="xaxis"></span></h1>
+    <h1>Screen Y-Axis : <span id="yaxis"></span></h1>
+    <br>
+    <h1>X-Axis : <span id="x1axis"></span></h1>
+    <h1>Y-Axis : <span id="y1axis"></span></h1>
+</body>
+
+<script>
+    // document.querySelector('h1').addEventListener('click', (e) => {
+    //    console.log(e)
+    // })
+
+    document.addEventListener('click', (e) => {
+        console.log(e)
+        document.querySelector('#xaxis').innerHTML = e.screenX
+        document.querySelector('#yaxis').innerHTML = e.screenY
+
+        document.querySelector('#x1axis').innerHTML = e.pageX
+        document.querySelector('#y1axis').innerHTML = e.pageY
+    })
+</script>
+</html>
